@@ -1,67 +1,46 @@
-Team Members Page - README
-Overview
+# Team Members Page - README
+
+## Overview
 A responsive team members showcase page built with Bootstrap 5 that features:
+- Filterable team member cards
+- Detailed member modals
+- Modern UI/UX design principles
+- Fully responsive layout
 
-Filterable team member cards
+## Features
 
-Detailed member modals
+### Core Functionality
+✅ **Role Filtering System**  
+- Filter team members by role (Developers, Designers, Managers)
+- Clear visual indication of active filter
+- "Clear Filter" button to return to all members
 
-Modern UI/UX design principles
+✅ **Interactive Member Cards**  
+- Hover animations with social link reveal
+- Consistent card design with truncated bios
+- Click to view detailed modal
 
-Fully responsive layout
+✅ **Member Detail Modals**  
+- Full profile view with extended bio
+- Social media links
+- Responsive image display
 
-Features
-Core Functionality
-✅ Role Filtering System
+### UI/UX Enhancements
+✨ **Modern Design System**  
+- Professional color palette
+- Consistent typography
+- Subtle animations and transitions
 
-Filter team members by role (Developers, Designers, Managers)
+✨ **Responsive Layout**  
+- Mobile-first design
+- Adapts to all screen sizes
+- Optimized touch targets
 
-Clear visual indication of active filter
+## Technical Implementation
 
-"Clear Filter" button to return to all members
+### Technologies Used
+- **Bootstrap 5** - Responsive grid and components
+- **Font Awesome** - Icon set
+- **Animate.css** - Smooth animations
+- **Vanilla JavaScript** - Filter and modal functionality
 
-✅ Interactive Member Cards
-
-Hover animations with social link reveal
-
-Consistent card design with truncated bios
-
-Click to view detailed modal
-
-✅ Member Detail Modals
-
-Full profile view with extended bio
-
-Social media links
-
-Responsive image display
-
-UI/UX Enhancements
-
-✨ Modern Design System
-
-Professional color palette
-
-Consistent typography
-
-Subtle animations and transitions
-
-✨ Responsive Layout
-
-Mobile-first design
-
-Adapts to all screen sizes
-
-Optimized touch targets
-
-
-Technical Implementation
-
-Technologies Used
-Bootstrap 5 - Responsive grid and components
-
-Font Awesome - Icon set
-
-Animate.css - Smooth animations
-
-Vanilla JavaScript - Filter and modal functionality
