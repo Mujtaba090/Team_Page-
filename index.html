@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Our Team | TechSolutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #495057;
+            --text-light: #6c757d;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+
+        .hero-title {
+            font-weight: 800;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-weight: 400;
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .team-section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .team-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img-container {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+
+        .team-social {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .team-card:hover .team-social {
+            transform: translateY(0);
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -moz-line-clamp: 3;
+    line-clamp: 3;
+    max-height: 4.5em;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+        
+
+        .filter-btn {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-team .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-team .modal-header {
+            border-bottom: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .modal-team .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: -75px auto 1.5rem;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-bio {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .modal-social a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .modal-social a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .team-img-container {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .team-section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .team-img-container {
+                height: 200px;
+            }
+            
+            .modal-img-container {
+                width: 120px;
+                height: 120px;
+                margin: -60px auto 1rem;
+            }
+
+.filter-btn.active {
+    background: var(--primary) !important;
+    color: white !important;
+    box-shadow: 0 3px 10px rgba(67, 97, 238, 0.3);
+}
+
+#clearFilter {
+    transition: all 0.3s ease;
+}
+
+#clearFilter:hover {
+    transform: translateY(-2px);
+}
+        }
+    </style>
+</head>
+<body>
+    
+    <section class="hero-section text-center">
+        <div class="container position-relative">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Meet Our Team</h1>
+            <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">We're a collective of passionate innovators, creative thinkers, and technical experts dedicated to delivering exceptional solutions.</p>
+            <a href="#team" class="btn btn-light btn-lg px-4 py-2 animate__animated animate__fadeInUp animate__delay-1s">Explore Our Team</a>
+        </div>
+    </section>
+
+   
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title text-center animate__animated animate__fadeIn">Our Creative Minds</h2>
+            
+<div class="d-flex flex-wrap justify-content-center align-items-center mb-5 gap-2">
+    <button class="filter-btn active" data-role="all">All Members</button>
+    <button class="filter-btn" data-role="developer">Developers</button>
+    <button class="filter-btn" data-role="designer">Designers</button>
+    <button class="filter-btn" data-role="manager">Managers</button>
+    
+    <button id="clearFilter" class="btn btn-outline-secondary btn-sm ms-3" style="display: none;">
+        <i class="fas fa-times me-1"></i> Clear Filter
+    </button>
+</div>
+
+            <div class="row g-4">
+                <!-- Team Member 1 -->
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeIn" data-role="developer">
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <img src="https://t4.ftcdn.net/jpg/03/34/96/71/240_F_334967193_YQCkaO4fh8c76ImVY3joZ4RHtTnpb0Kz.jpg" alt="Alex Johnson" class="team-img">
+                            <div class="team-social">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="member-name">Alex Johnson</h3>
+                            <p class="member-role">Lead Developer</p>
+                            <p class="member-bio">Alex specializes in front-end development with 8 years of experience building responsive web applications using modern JavaScript frameworks like React and Vue.js.</p>
+                            <button class="btn btn-outline-primary mt-auto align-self-start view-profile" data-bs-toggle="modal" data-bs-target="#teamModal" data-member="alex">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeIn" data-role="designer">
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <img src="https://t3.ftcdn.net/jpg/11/40/86/46/240_F_1140864630_bYZWE8vl5cQoiIcwIQOeO9lYQY94VjzT.jpg" alt="Sarah Williams" class="team-img">
+                            <div class="team-social">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-dribbble"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="member-name">Sarah Williams</h3>
+                            <p class="member-role">UI/UX Designer</p>
+                            <p class="member-bio">Sarah creates beautiful, intuitive interfaces with a focus on user experience. She's passionate about accessibility and design systems that scale across products.</p>
+                            <button class="btn btn-outline-primary mt-auto align-self-start view-profile" data-bs-toggle="modal" data-bs-target="#teamModal" data-member="sarah">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeIn" data-role="manager">
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <img src="https://t4.ftcdn.net/jpg/04/97/17/99/240_F_497179961_Q7qggTgNg2kkN57Ol4CSde7utQUOzqmJ.jpg" alt="Michael Chen" class="team-img">
+                            <div class="team-social">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="member-name">Michael Chen</h3>
+                            <p class="member-role">Project Manager</p>
+                            <p class="member-bio">Michael ensures projects are delivered on time and within budget while maintaining the highest quality standards through agile methodologies.</p>
+                            <button class="btn btn-outline-primary mt-auto align-self-start view-profile" data-bs-toggle="modal" data-bs-target="#teamModal" data-member="michael">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeIn" data-role="developer">
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <img src="https://t3.ftcdn.net/jpg/00/63/95/02/240_F_63950206_yxtLaqfqcxVOE22ywuTykg0QCPrHK0X8.jpg" alt="Priya Patel" class="team-img">
+                            <div class="team-social">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="member-name">Priya Patel</h3>
+                            <p class="member-role">Backend Developer</p>
+                            <p class="member-bio">Priya builds robust server-side applications and APIs with expertise in Node.js, Python, and database architecture for high-traffic systems.</p>
+                            <button class="btn btn-outline-primary mt-auto align-self-start view-profile" data-bs-toggle="modal" data-bs-target="#teamModal" data-member="priya">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeIn" data-role="designer">
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <img src="https://t4.ftcdn.net/jpg/01/78/74/01/240_F_178740131_TSMXtx6AV66lZ9GCl4aiqtUlNh41IIKb.jpg" alt="David Kim" class="team-img">
+                            <div class="team-social">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="member-name">David Kim</h3>
+                            <p class="member-role">Graphic Designer</p>
+                            <p class="member-bio">David creates stunning visual assets, branding materials, and marketing collateral that tell compelling stories through design.</p>
+                            <button class="btn btn-outline-primary mt-auto align-self-start view-profile" data-bs-toggle="modal" data-bs-target="#teamModal" data-member="david">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeIn" data-role="marketing">
+                    <div class="team-card">
+                        <div class="team-img-container">
+                            <img src="https://t3.ftcdn.net/jpg/01/96/02/70/240_F_196027068_QgHMsjJ5sc5nwEGaAU0oBD8xg5I03r7J.jpg" alt="Emily Rodriguez" class="team-img">
+                            <div class="team-social">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="member-name">Emily Rodriguez</h3>
+                            <p class="member-role">Marketing Director</p>
+                            <p class="member-bio">Emily develops comprehensive marketing strategies that drive growth and brand awareness through digital and traditional channels.</p>
+                            <button class="btn btn-outline-primary mt-auto align-self-start view-profile" data-bs-toggle="modal" data-bs-target="#teamModal" data-member="emily">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <div class="modal fade modal-team" id="teamModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTeamTitle">Team Member</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="modal-img-container">
+                        <img src="" alt="" class="modal-img" id="modalTeamImg">
+                    </div>
+                    <h3 class="modal-title" id="modalTeamName">Name</h3>
+                    <p class="modal-role" id="modalTeamRole">Role</p>
+                    <div class="modal-bio" id="modalTeamBio">
+                        Bio information will appear here.
+                    </div>
+                    <div class="modal-social" id="modalTeamSocial">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const teamData = {
+            alex: {
+                name: "Alex Johnson",
+                role: "Lead Developer",
+                bio: "Alex is our front-end specialist with over 8 years of experience building responsive web applications. He leads our development team in implementing modern JavaScript frameworks like React, Vue.js, and Angular. Alex is passionate about creating performant, accessible web experiences and mentoring junior developers.",
+                img: "https://t4.ftcdn.net/jpg/03/34/96/71/240_F_334967193_YQCkaO4fh8c76ImVY3joZ4RHtTnpb0Kz.jpg",
+                social: [
+                    {icon: "fab fa-linkedin", url: "#"},
+                    {icon: "fab fa-github", url: "#"},
+                    {icon: "fab fa-twitter", url: "#"},
+                    {icon: "fas fa-globe", url: "#"}
+                ]
+            },
+            sarah: {
+                name: "Sarah Williams",
+                role: "UI/UX Designer",
+                bio: "Sarah is our creative force behind all user interfaces. With a background in cognitive psychology, she designs intuitive experiences that users love. She's an expert in Figma, Adobe XD, and creating comprehensive design systems that ensure consistency across all our products.",
+                img: "https://t3.ftcdn.net/jpg/11/40/86/46/240_F_1140864630_bYZWE8vl5cQoiIcwIQOeO9lYQY94VjzT.jpg",
+                social: [
+                    {icon: "fab fa-linkedin", url: "#"},
+                    {icon: "fab fa-dribbble", url: "#"},
+                    {icon: "fab fa-behance", url: "#"}
+                ]
+            },
+            michael: {
+                name: "Michael Chen",
+                role: "Project Manager",
+                bio: "Michael keeps all our projects on track with his exceptional organizational skills. Certified in both Agile and Scrum methodologies, he ensures smooth collaboration between teams while maintaining focus on business objectives. Michael is fluent in three languages and often bridges communication between our international clients and teams.",
+                img: "https://t4.ftcdn.net/jpg/04/97/17/99/240_F_497179961_Q7qggTgNg2kkN57Ol4CSde7utQUOzqmJ.jpg",
+                social: [
+                    {icon: "fab fa-linkedin", url: "#"},
+                    {icon: "fab fa-twitter", url: "#"}
+                ]
+            },
+            priya: {
+                name: "Priya Patel",
+                role: "Backend Developer",
+                bio: "Priya architects the robust systems that power our applications. With expertise in Node.js, Python, and database design, she ensures our backend services are scalable, secure, and efficient. Priya holds a Master's degree in Computer Science and regularly contributes to open-source projects in her spare time.",
+                img: "https://t3.ftcdn.net/jpg/00/63/95/02/240_F_63950206_yxtLaqfqcxVOE22ywuTykg0QCPrHK0X8.jpg",
+                social: [
+                    {icon: "fab fa-linkedin", url: "#"},
+                    {icon: "fab fa-github", url: "#"}
+                ]
+            },
+            david: {
+                name: "David Kim",
+                role: "Graphic Designer",
+                bio: "David brings our brand to life through stunning visual design. Specializing in branding, illustration, and motion graphics, he creates the visual assets that make our products stand out. David's work has been recognized with several design awards, and he frequently speaks at design conferences.",
+                img: "https://t4.ftcdn.net/jpg/01/78/74/01/240_F_178740131_TSMXtx6AV66lZ9GCl4aiqtUlNh41IIKb.jpg",
+                social: [
+                    {icon: "fab fa-linkedin", url: "#"},
+                    {icon: "fab fa-instagram", url: "#"},
+                    {icon: "fab fa-behance", url: "#"}
+                ]
+            },
+            emily: {
+                name: "Emily Rodriguez",
+                role: "Marketing Director",
+                bio: "Emily develops and executes our comprehensive marketing strategies. With a background in digital marketing and analytics, she drives our growth through data-informed decisions. Emily leads our content, social media, and demand generation teams to build brand awareness and customer engagement.",
+                img: "https://t3.ftcdn.net/jpg/01/96/02/70/240_F_196027068_QgHMsjJ5sc5nwEGaAU0oBD8xg5I03r7J.jpg",
+                social: [
+                    {icon: "fab fa-linkedin", url: "#"},
+                    {icon: "fab fa-twitter", url: "#"},
+                    {icon: "fab fa-tiktok", url: "#"}
+                ]
+            }
+        };
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const teamMembers = document.querySelectorAll('[data-role]');
+const clearFilterBtn = document.getElementById('clearFilter');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const role = button.dataset.role;
+        applyFilter(role);
+    });
+});
+
+clearFilterBtn.addEventListener('click', () => {
+    applyFilter('all');
+});
+
+function applyFilter(role) {
+
+    filterButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.role === role);
+    });
+
+    clearFilterBtn.style.display = role === 'all' ? 'none' : 'block';
+
+    teamMembers.forEach(member => {
+        const shouldShow = role === 'all' || member.dataset.role === role;
+        member.style.display = shouldShow ? 'block' : 'none';
+        
+        if (shouldShow) {
+            member.classList.add('animate__animated', 'animate__fadeIn');
+        }
+    });
+}
+
+        const teamModal = document.getElementById('teamModal');
+        if (teamModal) {
+            teamModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const memberId = button.getAttribute('data-member');
+                const member = teamData[memberId];
+             
+                document.getElementById('modalTeamTitle').textContent = member.name;
+                document.getElementById('modalTeamName').textContent = member.name;
+                document.getElementById('modalTeamRole').textContent = member.role;
+                document.getElementById('modalTeamBio').textContent = member.bio;
+                document.getElementById('modalTeamImg').src = member.img;
+                document.getElementById('modalTeamImg').alt = member.name;
+                
+                const socialContainer = document.getElementById('modalTeamSocial');
+                socialContainer.innerHTML = '';
+                member.social.forEach(social => {
+                    const link = document.createElement('a');
+                    link.href = social.url;
+                    link.className = 'mx-2';
+                    link.innerHTML = `<i class="${social.icon} fa-lg"></i>`;
+                    link.target = '_blank';
+                    socialContainer.appendChild(link);
+                });
+            });
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
